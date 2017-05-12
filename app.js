@@ -1,4 +1,12 @@
 var express = require('express');
+
+//Connect to MongoDB: this code creates the default connection to the database and binds to the error event (so that errors will be printed to the console). 
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://<right_to_rage>:<mus1c1s777>@ds137891.mlab.com:37891/local_library_mozilla';
+mongoose.connect(mongoDB);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
